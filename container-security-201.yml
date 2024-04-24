@@ -1,0 +1,14 @@
+---
+- name: Container Security 201
+  gather_facts: true
+  hosts: all
+  vars_files:
+    - vars/global_vars.yml
+  tasks:
+    - name: Setup a Docker registry
+      ansible.builtin.include_role:
+        name: jonzeolla.labs.docker_registry
+
+    - name: Setup the cli tools
+      ansible.builtin.include_role:
+        name: cli-tools
